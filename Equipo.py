@@ -36,10 +36,10 @@ def PuntosEXtras():
     return random.randint(0,6)
 
 def JugarPartido():
-    while equipo1.setGanados<3 and equipo2.setGanados<3:
-        puntos1=Puntos()
-        puntos2=Puntos()
-        print(equipo1.nombre, "tiene:", puntos1, "|", equipo2.nombre, "tiene:", puntos2)
+    while equipo1.setGanados < 3 and equipo2.setGanados < 3:
+        puntos1 = Puntos()
+        puntos2 = Puntos()
+        print(equipo1.nombre, ":", puntos1, "|", equipo2.nombre, ":", puntos2)
 
         intentos = 0  
         while True:
@@ -56,18 +56,9 @@ def JugarPartido():
                 puntos2 += extra2
                 print(f"{equipo1.nombre}: +{extra1} = {puntos1} | {equipo2.nombre}: +{extra2} = {puntos2}")
                 intentos += 1
-                if intentos >= 10:
-                       if puntos1 > puntos2:
-                        print("Empate prolongado. Se otorga el set a:", equipo1.nombre)
-                        RegistraSet(1)
-                elif puntos2 > puntos1:
-                        print("Empate prolongado. Se otorga el set a:", equipo2.nombre)
-                        RegistraSet(2)
-                else:
-                        ganador = random.choice([1, 2])
-                        print("Empate total. Se elige ganador del set al azar.")
-                        RegistraSet(ganador)
-                break
+                if intentos > 10:
+                    print("Muchos intentos .")
+                    break  
 
 def ResultadoTorneo():
     print("\n**Resultado**")
